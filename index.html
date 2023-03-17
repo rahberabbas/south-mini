@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,6 +7,7 @@
     <link rel="stylesheet" href="./index.css">
     <title>South City Greens</title>
 </head>
+
 <body>
     <section class="hero">
         <img src="./images/Brochure-01.png" alt="">
@@ -20,5 +22,122 @@
         <img src="./images/Brochure-10.png" alt="">
         <img src="./images/Brochure-11.png" alt="">
     </section>
+
+    <section class="contacts" id="contactsUS">
+        <div class="contactUs">
+            <div class="title">
+                <h2>Get in Touch</h2>
+            </div>
+            <div class="box">
+                <div class="contact form">
+                    <h3>Send a Message</h3>
+                    <form action="" method="post">
+                        <div class="formBox">
+                            <div class="row50">
+                                <div class="inputbox">
+                                    <span>First Name</span>
+                                    <input type="text" name="" id="fname" placeholder="John" required>
+                                </div>
+                                <div class="inputbox">
+                                    <span>Last Name</span>
+                                    <input type="text" name="" id="lname" placeholder="Doe" required>
+                                </div>
+                            </div>
+
+                            <div class="row50">
+                                <div class="inputbox">
+                                    <span>Email</span>
+                                    <input type="email" name="" id="email" placeholder="john@gmail.com" required>
+                                </div>
+                                <div class="inputbox">
+                                    <span>Mobile</span>
+                                    <input type="text" name="" id="mobile" placeholder="+1234567890 " required>
+                                </div>
+                            </div>
+
+                            <div class="row100">
+                                <div class="inputbox">
+                                    <span>Message</span>
+                                    <textarea name="" id="msg" cols="30" rows="10" placeholder="Enter Your Text here..."
+                                        required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row100">
+                                <div class="inputbox">
+                                    <button type="submit" onclick="sendEmail(); reset(); return false;" id="submit"
+                                        class="btn" name="" value="Send" style="text-align: center;">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="contact info">
+                    <h3>Contact Info</h3>
+                    <div class="infoBox">
+                        <div class="">
+                            <span><ion-icon name="location"></ion-icon></span>
+                            <p> South City Green, Opp. South City, <br> Badaun Road, Kargaina, Bareilly, <br> Uttar
+                                Pradesh-243001</p>
+                        </div>
+                        <div class="">
+                            <span><ion-icon name="mail"></ion-icon></span>
+                            <a href="mailto:SouthCityGreens@gmail.com">SouthCityGreens@gmail.com</a>
+                        </div>
+                        <div class="">
+                            <span><ion-icon name="call"></ion-icon></span>
+                            <a href="tel:+918449055755">+91 84490 55755
+                            </a>
+                        </div>
+                        <ul class="sci">
+                            <li><a href=""><ion-icon name="logo-facebook"></ion-icon></a></li>
+                            <li><a href=""><ion-icon name="logo-twitter"></ion-icon></a></li>
+                            <li><a href=""><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                            <li><a href=""><ion-icon name="logo-instagram"></ion-icon></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.177452510072!2d79.38974653589705!3d28.325300271302112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a001d8b4a0a2df%3A0xe1fa3eeb0d1c95c6!2sSouthcitygreens!5e0!3m2!1sen!2sin!4v1671637575065!5m2!1sen!2sin"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a target="_blank"
+        href="https://api.whatsapp.com/send?phone=+918449055755&text=Hii, I'm Looking for Home in South City Greens"
+        class="whatsapp-button"><ion-icon name="logo-whatsapp"></ion-icon></a>
+
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+  <script>  
+    function sendEmail() {
+        let fname = document.getElementById("fname").value;
+        let lname = document.getElementById("lname").value;
+        let email = document.getElementById("email").value;
+        let mobile = document.getElementById("mobile").value;
+        let message = document.getElementById("msg").value;
+        let finalmessage = `First Name : ${fname} <br> Last Name : ${lname} <br>  Email : ${email} <br> Mobile : ${mobile} <br>  Message : ${message} <br>`;
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "leads.southcitygreens@gmail.com",
+            Password : "966A6DB43C4ECE0533171ABA89A5A4916159",
+            port: 2525,
+            To : 'singhsania353@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "Mail from website",
+            Body : finalmessage
+        }).then(
+          message => alert("Message Sent Successfully")
+        );
+    }
+    </script>
 </body>
+
 </html>
